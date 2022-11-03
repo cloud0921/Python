@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 
 ff=np.fromfile(r'Practice\Photo_to_Picture\cake.jpg', np.uint8 )
-
 img =cv2.imdecode(ff, cv2.IMREAD_UNCHANGED)
 img =cv2.resize(img, dsize=(0,0), fx=0.7,fy=0.7, interpolation=cv2.INTER_LINEAR)
 

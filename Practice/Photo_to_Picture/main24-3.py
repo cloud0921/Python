@@ -14,16 +14,17 @@ ff=np.fromfile(r'Practice\Photo_to_Picture\cake.jpg', np.uint8 )
 # numpy의 데이터타입 불리언 boolean, 정수형 int8~64, 양의 정수형 uint8~64, 부동소수형 float16~64,
 # 복소수형 complex64~128, 문자형 string_ 
 # uint8: 0~255
+
 # 이미지 전처리
 # img = cv2.imencode(ext, src[, params])  -> ext: 출력파일 확장자, src:압축할 이미지, params: ImwriteFlags
 # img =cv2.cv.imdecode(buf, flags) -> buf:인코딩된 배열, flags:ImreadModes
-img =cv2.imdecode(ff, cv2.IMREAD_UNCHANGED)
+img =cv2.imdecode(ff, -1)
 # cv2.IMREAD_COLOR : 이미지 파일을 Color로 읽어들입니다. 투명한 부분은 무시되며, Default값입니다.   1
 # cv2.IMREAD_GRAYSCALE : 이미지를 Grayscale로 읽어 들입니다. 실제 이미지 처리시 중간단계로 많이 사용합니다. 0
 # cv2.IMREAD_UNCHANGED : 이미지파일을 alpha channel(RGB값 이외의 데이터)까지 포함하여 읽어 들입니다.  -1
 
 
-img =cv2.resize(img, dsize=(0,0), fx=0.5,fy=0.5, interpolation=cv2.INTER_AREA)
+img =cv2.resize(img, dsize=(0,0), fx=0.5,fy=0.5, interpolation=cv2.INTER_LINEAR)
 # cv2.resize(src, dsize, dst=None, fx=None, fy=None, interpolation=None)
 # src:입력이미지, desize: 결과 영상크기(w,h) 둘다 0이면 fx(x방향 스케일비율),fy(y방향 스케일비율)로 이용하여 결정 interpolation: 보간법 지정. 기본값은 cv2.INTER_LINEAR
 # cv2.INTER_NEAREST - 최근방 이웃 보간법: 가장 빠르지만 퀄리티가 많이 떨어집니다. 따라서 잘 쓰이지 않습니다.
