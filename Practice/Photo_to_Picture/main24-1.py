@@ -6,7 +6,7 @@ import cv2
 
 
 # 이미지 불러오기
-ff=np.fromfile(r'Practice\Photo_to_Picture\cake.jpg', np.uint8 )
+ff=np.fromfile(r'c:\Users\user\Desktop\Python\Python\Practice\Photo_to_Picture\cake.jpg', np.uint8 )
 # 1. numpy.savetxt(), numpy.loadtxt()   텍스트 파일로 Numpy배열 저장및 로드 .txt
 # 2. numpy.tofile(), numpy.fromfile()   이진 파일로 Numpy배열 저장및 로드 .dat(이미지도!)
 # 3. numpy.save(), numpy.load()         Numpy배열 파일 저장및 로드 .npy
@@ -17,7 +17,7 @@ ff=np.fromfile(r'Practice\Photo_to_Picture\cake.jpg', np.uint8 )
 # 이미지 전처리
 # img = cv2.imencode(ext, src[, params])  -> ext: 출력파일 확장자, src:압축할 이미지, params: ImwriteFlags
 # img =cv2.cv.imdecode(buf, flags) -> buf:인코딩된 배열, flags:ImreadModes
-img =cv2.imdecode(ff, cv2.IMREAD_UNCHANGED)
+img =cv2.imdecode(ff, -1)
 # cv2.IMREAD_COLOR : 이미지 파일을 Color로 읽어들입니다. 투명한 부분은 무시되며, Default값입니다.   1
 # cv2.IMREAD_GRAYSCALE : 이미지를 Grayscale로 읽어 들입니다. 실제 이미지 처리시 중간단계로 많이 사용합니다. 0
 # cv2.IMREAD_UNCHANGED : 이미지파일을 alpha channel(RGB값 이외의 데이터)까지 포함하여 읽어 들입니다.  -1
